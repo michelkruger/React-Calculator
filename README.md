@@ -1,7 +1,7 @@
 # react-math-calculator
 Calculadora matemática feita em React, Para o teste de Front-End da empresa Cigam.
 A calculadora apresenta as funções basicas de soma, subtração, divisão e multiplicação.
-Neste projeto foi abordado os principáis conceitos do react: estado, propriedade e componentização.
+Neste projeto foi abordado os principais conceitos do react: estado, propriedade e componentização.
 
 # Instruções:
 
