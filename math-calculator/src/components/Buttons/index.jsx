@@ -9,7 +9,11 @@ export const Button = ({children, name, className, valueScreen, setValueScreen,.
             setValueScreen(target.name);
 
         // verificação para não ser possivel iniciar com um sinal
-        if(valueScreen === "0" & isNaN(target.name) === true)
+        if(valueScreen === "0" & isNaN(target.name) === true & target.name !== ".")
+            return false;
+
+        // Não permite mudar de operador, caso for negativo na primeira casa. 
+        if(valueScreen === "-" & isNaN(target.name) === true)
             return false;
 
         // Caso já tenha um operador, ele o substitui pelo selecinado.
@@ -20,10 +24,15 @@ export const Button = ({children, name, className, valueScreen, setValueScreen,.
         if(isNaN(valueScreen.substr(-1)) === true & isNaN(target.name) === true)
             return false;
 
+        // permite que o zero inicial tenha ponto
+        if (valueScreen === "0" & target.name === ".") {
+            setValueScreen(valueScreen.concat(target.name));
+        } 
         //Não permite concatenar com zero na primeira posição ou erro.
-        if(valueScreen === "0" || valueScreen === "error") {
+        else if(valueScreen === "0" || valueScreen === "error") {
             setValueScreen(target.name);
-        } else {
+        }
+        else {
             setValueScreen(valueScreen.concat(target.name));
         }
     }
